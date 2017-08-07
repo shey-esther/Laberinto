@@ -12,36 +12,43 @@ var mapa=[
 "*o*__*________**W*",
 "******************"];
 
-//nueva matriz con posicion 0,1 .........etc.
+// crea una nueva matriz con posicion del elemento (0,1) .........etc.
 var nuevaMatriz = new Array(mapa.length);
 for (var i = 0; i < nuevaMatriz.length; i++){
 	nuevaMatriz[i] = new Array(mapa[0].length);
 }
-var nuevaPosicion; // variable global
+// variable global
+var nuevaPosicion; 
+
+//los 'id' de los botones
 var izq = document.getElementById('izq');
 var der = document.getElementById('der');
 var adelante = document.getElementById('adelante');
 var salida = document.getElementById('salida');
-var tabla = document.createElement('table');//creando una nueva tabla
 
+//creando una nueva tabla
+var tabla = document.createElement('table');
     for (var i = 0; i < mapa.length; i++) {
         var columnas = document.createElement('tr');//las columnas
         console.log(columnas);
         for (var j = 0; j < mapa[i].length; j++) {
             var fila = document.createElement('td');//las filas
             //console.log(fila);
-            if (mapa[i][j]== "*") {
+            if (mapa[i][j]== '*') {
                 fila.setAttribute('class', 'negro');
-            }else if (mapa[i][j] == "_"){
+            }else if (mapa[i][j] == '_'){
             	fila.setAttribute('class', 'blanco');
-            }else if (mapa[i][j]== "o"){
+            }else if (mapa[i][j]== 'o'){
             	fila.setAttribute('class', 'rojo');
-				var imagen = document.createElement('img');//creando imagen
+            	//creando imagen
+				var imagen = document.createElement('img');
             	imagen.src ='css/arriba.png';
-            	fila.appendChild(imagen);// en las filas que son los "td" implementando una imagen hija
-            	nuevaPosicion = {x:i,y:j, direccion:'arriba'};//objeto literal
+            	// en las filas que son los "td" implementando una imagen hija
+            	fila.appendChild(imagen);
+            	//objeto o constante literal
+            	nuevaPosicion = {x:i,y:j, direccion:'arriba'};
 
-            }else if(mapa[i][j]== "W"){
+            }else if(mapa[i][j]== 'W'){
             	fila.setAttribute('class', 'azul');
             }
             columnas.appendChild(fila);
